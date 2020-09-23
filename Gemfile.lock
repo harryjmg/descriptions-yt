@@ -37,6 +37,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_link_to (1.0.5)
+      actionpack
+      addressable
     activejob (6.0.3.3)
       activesupport (= 6.0.3.3)
       globalid (>= 0.3.6)
@@ -61,7 +64,13 @@ GEM
     autoprefixer-rails (10.0.0.2)
       execjs
     bcrypt (3.1.16)
+    better_errors (2.5.1)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.8.1)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
     bootstrap (4.5.2)
@@ -79,8 +88,10 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    coderay (1.1.2)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    debug_inspector (0.0.3)
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -250,6 +261,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to
+  better_errors
+  binding_of_caller
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.5.2)
   byebug
