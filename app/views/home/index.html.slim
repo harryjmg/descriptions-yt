@@ -9,7 +9,7 @@
     h1.cover-heading Descriptions.yt
     p.lead YouTube Video Descriptions For Creators
     p.lead
-      a.btn.btn-lg.btn-secondary href="#"  Sign in with Google
+      = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "btn btn-lg btn-secondary"
 
   main.inner.cover style="margin-top: 4em; color: #8c8c8c;"
     p 1. Select your videos
