@@ -8,7 +8,7 @@
       .body
         table.table
           tbody
-            - @videos.each do |v|
+            - @blocks.each do |c|
               tr
                 th
                   .youtube_thumb_stack
@@ -18,7 +18,7 @@
 
                 td.col-11
                   .yt_description_review
-                    = Diffy::Diff.new(v[:description], v[:edited_description]).to_s(:html_simple).html_safe
+                    = Diffy::Diff.new(c[:content], c[:edited_content]).to_s(:html_simple).html_safe
       .credit_needed
         | Credit needed : 30
       .buttons

@@ -3,11 +3,12 @@
     .circle 2
     .line
   div
-    .title Edit recurring descriptions part descriptions
+    .title Edit recurring descriptions parts
     - if active
       .body
         table.table
           tbody
+            / @TODO it should be blocks
             - @videos.each do |v|
               tr
                 th
