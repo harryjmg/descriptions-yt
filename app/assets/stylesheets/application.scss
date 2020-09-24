@@ -65,9 +65,33 @@ $theme-colors: (
 }
 
 .body {
-  padding-bottom: 1em;
+  margin-bottom: 1em;
+  height: 30em;
+  overflow: scroll;
+  border: 1px solid #c5c5c5;
 }
 
 .buttons {
   padding-bottom: 3em;
+}
+
+.yt_title_and_desc {
+  width: 40em;
+  margin-left: 1em;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.yt_title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.yt_description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #a9a9a9;
+  font-size: 0.8em;
 }
