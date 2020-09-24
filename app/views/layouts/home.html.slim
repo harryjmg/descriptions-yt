@@ -9,5 +9,6 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
     body.text-center
-      = render 'layouts/messages'
+      .messages style="position: absolute; text-shadow: none;"
+        = render 'layouts/messages'
       = yield

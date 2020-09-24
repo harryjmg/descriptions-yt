@@ -35,10 +35,16 @@ class User < ApplicationRecord
     user
   end
 
-  def yt_test
-    account = Yt::Account.new access_token: 'ya29.1.ABCDEFGHIJ'
-    account.email #=> (retrieves the account’s e-mail address)
-    account.videos #=> (lists a video to an account’s playlist)
+  def load_videos
+    account = Yt::Account.new refresh_token: channel.refresh_token
+    account.videos.each do |v|
+      channel.videos.create(
+        youtube_id: v.id,
+        title: v.title,
+        description: v.description,
+        miniature: v.thumbnail_url
+      )
+    end
   end
 
 end

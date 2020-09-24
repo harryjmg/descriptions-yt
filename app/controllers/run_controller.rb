@@ -1,5 +1,9 @@
 class RunController < ApplicationController
+  before_action :authenticate_user!
+
   def select_videos
+    current_user.load_videos if current_user.channel.videos.empty?
+
     set_videos
   end
 
@@ -15,53 +19,7 @@ class RunController < ApplicationController
   private
 
   def set_videos
-    @videos = [
-      {
-        title: "My last great video title is here and is a little long",
-        description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri",
-        edited_description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri more word"
-      },
-      {
-        title: "My last great video title is here and is a little long",
-        description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri",
-        edited_description: "The description of my last video is pretty long so i can see what it looks like on two lines"
-      },
-      {
-        title: "My last great video title is here and is a little long",
-        description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri\n",
-        edited_description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri\nBonjour"
-      },
-      {
-        title: "My last great video title is here and is a little long",
-        description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri",
-        edited_description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri"
-      },
-      {
-        title: "My last great video title is here and is a little long",
-        description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri",
-        edited_description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri"
-      },
-      {
-        title: "My last great video title is here and is a little long",
-        description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri",
-        edited_description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri"
-      },
-      {
-        title: "My last great video title is here and is a little long",
-        description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri",
-        edited_description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri"
-      },
-      {
-        title: "My last great video title is here and is a little long",
-        description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri",
-        edited_description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri"
-      },
-      {
-        title: "My last great video title is here and is a little long",
-        description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri",
-        edited_description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri"
-      }
-    ]
+    @videos = current_user.channel.videos
   end
 
   def set_blocks

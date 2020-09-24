@@ -13,4 +13,4 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         li.nav-item
           = link_to "Add credits", credit_index_path, class: "nav-link"
         li.nav-item
-          = link_to "Logout", root_path, class: "nav-link"
+          = link_to "Logout", destroy_user_session_path, method: "delete", class: "nav-link"

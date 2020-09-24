@@ -20,7 +20,7 @@
 
                 td.col-11 style="padding-left:0; display: flex"
                   .youtube_thumb
-                    = image_tag("test-thumbnail.png", size: "123x68", alt: "Edit Entry")
+                    = image_tag v[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
                   .yt_title_and_desc
                     .yt_title = v[:title]
                     .yt_description = v[:description]
