@@ -98,6 +98,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diffy (3.4.0)
     erubi (1.9.0)
     execjs (2.7.0)
     faraday (1.0.1)
@@ -255,6 +256,8 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yt (0.32.6)
+      activesupport
     zeitwerk (2.4.0)
 
 PLATFORMS
@@ -269,6 +272,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  diffy
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.2)
@@ -286,6 +290,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
+  yt (~> 0.32.0)
 
 RUBY VERSION
    ruby 2.5.1p57
