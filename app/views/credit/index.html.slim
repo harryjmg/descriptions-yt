@@ -1,0 +1,16 @@
+.title style="padding-bottom:0.2em" Credits left : 0
+.lead You have 30 descriptions updates in queue (30 credits needed)*
+p.mt-2
+  | (*) 1 credit = 1 video description edit
+
+.title.mt-5 style="padding-bottom:0.2em" Get some credits
+p Buy new credits (minimum : 300 credits)
+
+.buttons.mt-3
+  = link_to "$4.90 — 300 credits", run_edit_descriptions_path, class: "btn btn-primary mr-5"
+  = link_to "$39.90 — 3000 credits", run_edit_descriptions_path, class: "btn btn-primary"
+
+
+
+.center_nav_link.mt-3
+  = link_to "Return to queue", run_select_videos_path

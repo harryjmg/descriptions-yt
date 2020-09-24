@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'credit/index'
   get 'run/select_videos'
   get 'run/edit_descriptions'
   get 'run/publish_changes'
