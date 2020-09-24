@@ -1,4 +1,9 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+
+$theme-colors: (
+  "primary": #4285f4
+);
+
 @import "bootstrap";
 
 *,
@@ -6,6 +11,11 @@
 *:after {
     box-sizing: border-box;
 }
+
+.body {
+  color: #424242;
+}
+
 .step {
   position: relative;
   min-height: 46px /* circle-size */ ;
@@ -31,6 +41,7 @@
   position: relative;
   color: white;
   text-align: center;
+  font-size: 1.2em;
 }
 
 .line {
@@ -48,4 +59,15 @@
 .title {
   line-height: 46px;
   font-weight: bold;
+  font-size: xx-large;
+  color: #505050;
+  padding-bottom: 1em;
+}
+
+.body {
+  padding-bottom: 1em;
+}
+
+.buttons {
+  padding-bottom: 3em;
 }
