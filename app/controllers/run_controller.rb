@@ -8,6 +8,7 @@ class RunController < ApplicationController
   end
 
   def publish_changes
+    set_videos
   end
 
   private
