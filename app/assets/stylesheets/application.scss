@@ -1,2 +1,51 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+.step {
+  position: relative;
+  min-height: 46px /* circle-size */ ;
+  min-height: 6em;
+}
+
+.step > div:first-child {
+  position: static;
+  height: 0;
+}
+
+.step > div:last-child {
+  margin-left: 46px ;
+  padding-left: 16px;
+}
+
+.circle {
+  background: #4285f4;
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  border-radius: 23px;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.line {
+  position: absolute;
+  border-left: 1px solid gainsboro;
+  left: 23px;
+  bottom: 10px;
+  top: 56px;
+}
+
+.step:last-child .line {
+  display: none;
+}
+
+.title {
+  line-height: 46px;
+  font-weight: bold;
+}
