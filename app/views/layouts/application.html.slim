@@ -8,6 +8,7 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
+    = render 'layouts/dev_navigation' if Rails.env.development?
     body
       = render 'layouts/navigation'
       = render 'layouts/messages'
