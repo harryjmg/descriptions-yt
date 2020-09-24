@@ -68,7 +68,8 @@ $theme-colors: (
   margin-bottom: 1em;
   height: 30em;
   overflow: scroll;
-  border: 1px solid #c5c5c5;
+  background-color: $light;
+  border-radius: 5px;
 }
 
 .buttons {

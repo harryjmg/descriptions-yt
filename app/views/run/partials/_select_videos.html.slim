@@ -4,26 +4,27 @@
     .line
   div
     .title Select videos
-    .body
-      table.table.table-hover
-        thead
-          tr.d-flex
-            th.col-1 style="text-align: center;"
-              input type="checkbox" style="transform:scale(1.8)"
-            th.col-11 Video details
-        tbody
-          - @videos.each do |v|
+    - if active
+      .body
+        table.table.table-hover
+          thead
             tr.d-flex
-              th.col-sm-1 style="text-align: center;"
+              th.col-1 style="text-align: center;"
                 input type="checkbox" style="transform:scale(1.8)"
+              th.col-11 Video details
+          tbody
+            - @videos.each do |v|
+              tr.d-flex
+                th.col-sm-1 style="text-align: center;"
+                  input type="checkbox" style="transform:scale(1.8)"
 
-              td.col-11 style="padding-left:0; display: flex"
-                .youtube_thumb
-                  = image_tag("test-thumbnail.png", size: "123x68", alt: "Edit Entry")
-                .yt_title_and_desc
-                  .yt_title = v[:title]
-                  .yt_description = v[:description]
+                td.col-11 style="padding-left:0; display: flex"
+                  .youtube_thumb
+                    = image_tag("test-thumbnail.png", size: "123x68", alt: "Edit Entry")
+                  .yt_title_and_desc
+                    .yt_title = v[:title]
+                    .yt_description = v[:description]
 
-    .buttons
-      = link_to "Back", root_path, class: "btn disabled"
-      = link_to "Next", run_edit_descriptions_path, class: "btn btn-primary"
+      .buttons
+        = link_to "Back", root_path, class: "btn disabled"
+        = link_to "Next", run_edit_descriptions_path, class: "btn btn-primary"
