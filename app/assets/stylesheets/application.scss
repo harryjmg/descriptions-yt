@@ -71,6 +71,7 @@ $theme-colors: (
   background-color: $light;
   border: 1px solid #ececec;
   border-radius: 5px;
+  box-shadow: 2px 2px 5px #cecece;
 }
 
 .buttons {
@@ -133,3 +134,21 @@ $theme-colors: (
   border-radius: 5px;
   color: #495057;
 }
+
+.credit_needed {
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+
+.diff{overflow:auto;}
+.diff ul{overflow:auto;list-style:none;margin:0;padding:0;display:table;width:100%;}
+.diff del, .diff ins{display:block;text-decoration:none;}
+.diff li{padding:0; display:table-row;margin: 0;height:1em;}
+.diff li.ins{background:#dfd; color:#080}
+.diff li.del{background:#fee; color:#b00}
+/* try 'whitespace:pre;' if you don't want lines to wrap */
+.diff del, .diff ins, .diff span{white-space:pre-wrap;}
+.diff del strong{background:#fcc;}
+.diff ins strong{background:#9f9;}
+.diff li.diff-comment { display: none; }
+.diff li.diff-block-info { background: none repeat scroll 0 0 gray; }

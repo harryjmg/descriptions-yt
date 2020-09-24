@@ -18,7 +18,9 @@
 
                 td.col-11
                   .yt_description_review
-                    = v[:description]
+                    = Diffy::Diff.new(v[:description], v[:edited_description]).to_s(:html_simple).html_safe
+      .credit_needed
+        | Credit needed : 30
       .buttons
         = link_to "Back", run_edit_descriptions_path, class: "btn"
         = link_to "Publish", root_path, class: "btn btn-primary"
