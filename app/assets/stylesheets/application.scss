@@ -69,6 +69,7 @@ $theme-colors: (
   height: 30em;
   overflow: scroll;
   background-color: $light;
+  border: 1px solid #ececec;
   border-radius: 5px;
 }
 
@@ -95,4 +96,30 @@ $theme-colors: (
   text-overflow: ellipsis;
   color: #a9a9a9;
   font-size: 0.8em;
+}
+
+.youtube_thumb_stack {
+  margin-left: 1em;
+  box-shadow: 1px 1px 1px black,
+    2px 2px 1px black,
+    3px 3px 1px #a9a9a9,
+    4px 4px 1px black,
+    5px 5px 1px black,
+    6px 6px 1px #a9a9a9,
+    7px 7px 1px black,
+    8px 8px 1px black,
+    9px 9px 1px #a9a9a9,
+    10px 10px 1px black,
+    11px 11px 1px black,
+    12px 12px 1px #a9a9a9,
+    13px 13px 1px black,
+    14px 14px 1px black,
+    15px 15px 1px #a9a9a9;
+}
+
+.youtube_videos_count {
+  padding-top: 1.5em;
+  font-size: 0.9em;
+  font-weight: 400;
+  margin-left: 2em;
 }

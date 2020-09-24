@@ -1,5 +1,18 @@
 class RunController < ApplicationController
   def select_videos
+    set_videos
+  end
+
+  def edit_descriptions
+    set_videos
+  end
+
+  def publish_changes
+  end
+
+  private
+
+  def set_videos
     @videos = [
       {
         title: "My last great video title is here and is a little long",
@@ -38,11 +51,5 @@ class RunController < ApplicationController
         description: "The description of my last video is pretty long so i can see what it looks like on two lines my nigga cheri"
       }
     ]
-  end
-
-  def edit_descriptions
-  end
-
-  def publish_changes
   end
 end
