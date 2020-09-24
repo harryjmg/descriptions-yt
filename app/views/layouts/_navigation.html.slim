@@ -1,21 +1,38 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  .navbar-brand Descriptions.yt
-  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
-    span.navbar-toggler-icon
-  #navbarSupportedContent.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
-      li.nav-item
-        = link_to "Home", root_path, class: "nav-link"
-      li.nav-item
-        = link_to "Sign in", new_user_session_path, class: "nav-link"
-      li.nav-item
-        = link_to "Sign up", new_user_registration_path, class: "nav-link"
-      li.nav-item
-        = link_to "Core 1", run_select_videos_path, class: "nav-link"
-      li.nav-item
-        = link_to "Core 2", run_edit_descriptions_path, class: "nav-link"
-      li.nav-item
-        = link_to "Core 3", run_publish_changes_path, class: "nav-link"
+/ nav.navbar.navbar-expand-lg.navbar-light.bg-light
+/   .navbar-brand Descriptions.yt
+/   button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+/     span.navbar-toggler-icon
+/   #navbarSupportedContent.collapse.navbar-collapse
+/     ul.navbar-nav.mr-auto
+/       li.nav-item
+/         = link_to "Home", root_path, class: "nav-link"
+/       li.nav-item
+/         = link_to "Sign in", new_user_session_path, class: "nav-link"
+/       li.nav-item
+/         = link_to "Sign up", new_user_registration_path, class: "nav-link"
+/       li.nav-item
+/         = link_to "Core 1", run_select_videos_path, class: "nav-link"
+/       li.nav-item
+/         = link_to "Core 2", run_edit_descriptions_path, class: "nav-link"
+/       li.nav-item
+/         = link_to "Core 3", run_publish_changes_path, class: "nav-link"
+/
+/       li.nav-item
+/         = link_to "Sign out", destroy_user_session_path, method: "delete", class: "nav-link"
 
-      li.nav-item
-        = link_to "Sign out", destroy_user_session_path, method: "delete", class: "nav-link"
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container
+    = link_to "Descriptions.yt", root_path, class: "navbar-brand"
+    button.navbar-toggler aria-controls="navbarsExample07" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarsExample07" data-toggle="collapse" type="button"
+      span.navbar-toggler-icon
+    #navbarsExample07.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+      ul.navbar-nav
+        li.nav-item
+          = link_to "Channel name", root_path, class: "nav-link"
+        li.nav-item
+          = link_to "Credits : 0", root_path, class: "nav-link disabled"
+        li.nav-item
+          = link_to "Add credits", root_path, class: "nav-link"
+        li.nav-item
+          = link_to "Logout", root_path, class: "nav-link"
