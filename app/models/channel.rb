@@ -2,8 +2,6 @@ class Channel < ApplicationRecord
   belongs_to :user
   has_many :videos, dependent: :destroy
 
-  after_create :load_videos
-
   def load_videos
     account = Yt::Account.new refresh_token: refresh_token
     account.videos.each do |v|
