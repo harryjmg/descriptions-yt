@@ -48,16 +48,25 @@ class Run < ApplicationRecord
   end
 
   def push_youtube
+    # Local video updating
     blocks.each do |block|
-      if block.edited_content != block.content
+      if block.edited_content.present? && block.edited_content != block.content
         block.videos.each do |video|
-          video.update(edited_description: (video.description.gsub! block.content, block.edited_content))
+          video.update(edited_description: (video.description.gsub block.content, block.edited_content))
         end
       end
     end
 
+    # Distant video updating
+    account = Yt::Account.new refresh_token: user.channel.refresh_token
+    videos.edited.each do |video|
+      online_video = Yt::Video.new id: video.youtube_id, auth: account
+      online_video.update(description: video.edited_description)
+      user.credit_rm(1)
+    end
+
+    # Last things
     update(state: "complete")
-    user.credit_rm(cost)
   end
 
 end
