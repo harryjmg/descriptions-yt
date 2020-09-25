@@ -9,18 +9,20 @@
         table.table
           tbody
             / @TODO it should be blocks
-            - @videos.each do |v|
+            - @run.blocks.each do |block|
               tr
                 th
                   .youtube_thumb_stack
-                    = image_tag("test-thumbnail.png", size: "123x68", alt: "Edit Entry")
+                    = image_tag block.videos.sample[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
                   .youtube_videos_count
-                    | 10 videos
+                    = "#{block.videos.count} videos"
 
                 td.col-11
                   .form-group style="width: 30em; margin-left: 4em;"
                     textarea.form-control rows="5"
-                      = v[:description]
+                      = block[:content]
+
+        p.ml-4 Notice : Only description parts that appears more than 1 time.
 
       .buttons
         = link_to "Back", runs_select_videos_path, class: "btn"

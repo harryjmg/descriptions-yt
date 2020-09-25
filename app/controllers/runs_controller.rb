@@ -27,7 +27,6 @@ class RunsController < ApplicationController
     end
 
     @run.generate_blocks
-
     redirect_to runs_edit_descriptions_path
   end
 

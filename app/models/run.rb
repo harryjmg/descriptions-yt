@@ -18,6 +18,11 @@ class Run < ApplicationRecord
       end
     end
 
+    # Remove blocks with only one video
+    blocks.each do |block|
+      block.destroy if block.videos.count == 1
+    end
+
     blocks
   end
 
