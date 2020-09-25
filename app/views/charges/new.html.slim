@@ -1,5 +1,5 @@
 .title style="padding-bottom:0.2em" No more credits ?
-p.lead Charge #{500} units of fresh credits for $9.90
+p.lead Buy #{500} credits
 
 .payment_zone
   label for="card-element"  Credit or debit card :
@@ -21,7 +21,7 @@ p.lead Charge #{500} units of fresh credits for $9.90
 
 javascript:
   // Create a Stripe client.
-  var stripe = Stripe('#{Rails.application.credentials.stripe[:publishable_key]}');
+  var stripe = Stripe('pk_test_51HP3L0INWPAMVhgKVFufJspkYsKdOjbMgoDglx8OCfiAgZkzMsx3PFegzRrmDMKdbNLuZS4ABuLxDEUZoevIfsJY00aTeZCP0u');
 
   // Create an instance of Elements.
   var elements = stripe.elements();
