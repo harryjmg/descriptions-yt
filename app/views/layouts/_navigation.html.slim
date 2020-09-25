@@ -1,16 +1,12 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
+nav.navbar.navbar-expand-md.navbar-light.bg-light
   .container
     = link_to "Descriptions.yt", root_path, class: "navbar-brand"
-    button.navbar-toggler aria-controls="navbarsExample07" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarsExample07" data-toggle="collapse" type="button"
-      span.navbar-toggler-icon
-    #navbarsExample07.collapse.navbar-collapse
-      ul.navbar-nav.mr-auto
-      ul.navbar-nav
-        li.nav-item
-          = link_to current_user.channel.name, runs_select_videos_path, class: "nav-link"
-        li.nav-item
-          = link_to "Credits : #{current_user.credit}", credit_index_path, class: "nav-link"
-        li.nav-item
-          = link_to "Add credits", credit_index_path, class: "nav-link"
-        li.nav-item
-          = link_to "Logout", destroy_user_session_path, method: "delete", class: "nav-link"
+    ul.navbar-nav
+      li.nav-item
+        = link_to current_user.channel.name, runs_select_videos_path, class: "nav-link"
+      li.nav-item
+        = link_to "Credits : #{current_user.credit}", credit_index_path, class: "nav-link"
+      li.nav-item
+        = link_to "Add credits", credit_index_path, class: "nav-link"
+      li.nav-item
+        = link_to "Logout", destroy_user_session_path, method: "delete", class: "nav-link"
