@@ -62,6 +62,7 @@ class Run < ApplicationRecord
     videos.edited.each do |video|
       online_video = Yt::Video.new id: video.youtube_id, auth: account
       online_video.update(description: video.edited_description)
+      video.update(description: video.edited_description)
       user.credit_rm(1)
     end
 
