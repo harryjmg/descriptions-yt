@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_one :channel, :dependent => :destroy
   has_many :runs, :dependent => :destroy
 
+  after_create :initialize_credit
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
@@ -34,6 +36,10 @@ class User < ApplicationRecord
     end
 
     user
+  end
+
+  def initialize_credit
+    update(credit: 0)
   end
 
 end

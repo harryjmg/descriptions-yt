@@ -20,7 +20,11 @@
                   .yt_description_review
                     = Diffy::Diff.new(block[:content], block[:edited_content]).to_s(:html_simple).html_safe
       .credit_needed
-        | Credit needed : #{@run.cost}
+        div On your account : #{current_user.credit} credits
+        div.mb-4 Required : #{@run.cost} credits
       .buttons
         = link_to "Back", runs_edit_descriptions_path, class: "btn"
-        = link_to "Publish", root_path, class: "btn btn-primary"
+        - if @run.cost <= current_user.credit
+          = link_to "Publish", root_path, class: "btn btn-primary"
+        - else
+          = link_to "Add credit and publish", root_path, class: "btn btn-primary"
