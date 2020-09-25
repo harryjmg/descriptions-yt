@@ -6,19 +6,22 @@
     .title Publish changes
     - if active
       .body
-        table.table
-          tbody
-            - @run.blocks.each do |block|
-              tr
-                th
-                  .youtube_thumb_stack
-                    = image_tag block.videos.first[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
-                  .youtube_videos_count
-                    = "#{block.videos.count} videos"
+        - if @blocks.empty?
+          .lead style="text-align: center; padding-top: 20%;" Nothing here
+        - else
+          table.table
+            tbody
+              - @blocks.each do |block|
+                tr
+                  th
+                    .youtube_thumb_stack
+                      = image_tag block.videos.first[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
+                    .youtube_videos_count
+                      = "#{block.videos.count} videos"
 
-                td.col-11
-                  .yt_description_review
-                    = Diffy::Diff.new(block[:content], block[:edited_content]).to_s(:html_simple).html_safe
+                  td.col-11
+                    .yt_description_review
+                      = Diffy::Diff.new(block[:content], block[:edited_content]).to_s(:html_simple).html_safe
       .credit_needed
         div On your account : #{current_user.credit} credits
         div.mb-4 Required : #{@run.cost} credits

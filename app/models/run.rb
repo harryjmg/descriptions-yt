@@ -18,19 +18,24 @@ class Run < ApplicationRecord
       end
     end
 
-    # Remove blocks with only one video
-    blocks.each do |block|
-      block.destroy if block.videos.count == 1
-    end
-
     blocks
+  end
+
+  def select_recurrent_blocks
+    blocks.select { |block| block.videos.count != 1 }
+    # blocks.select { &:videos.count != 1 }
+  end
+
+  def select_modified_blocks
+    filter_1 = select_recurrent_blocks
+    filter_1.select { |block| block.content != block.edited_content }
   end
 
   def calculate_cost
     total = 0
     videos_id = []
-    blocks.each do |block|
-      if block.edited_content.present?
+    select_modified_blocks.each do |block|
+      if block.edited_content != block.content
         block.videos.each do |video|
           if videos_id.include?(video.id) == false
             videos_id << video.id
@@ -44,7 +49,7 @@ class Run < ApplicationRecord
 
   def push_youtube
     blocks.each do |block|
-      if block.edited_content.present?
+      if block.edited_content != block.content
         block.videos.each do |video|
           video.update(edited_description: (video.description.gsub! block.content, block.edited_content))
         end
@@ -52,7 +57,7 @@ class Run < ApplicationRecord
     end
 
     update(state: "complete")
-    current_user.credit_rm(cost)
+    user.credit_rm(cost)
   end
 
 end

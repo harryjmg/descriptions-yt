@@ -9,12 +9,14 @@ class RunsController < ApplicationController
   end
 
   def edit_descriptions
-    @run = Run.where(state: "editing").where(user: current_user).last
+    @run = current_user.runs.find(params[:id])
+    @blocks = @run.select_recurrent_blocks
   end
 
   def publish_changes
-    @run = Run.where(state: "editing").where(user: current_user).last
+    @run = current_user.runs.find(params[:id])
     @run.calculate_cost
+    @blocks = @run.select_modified_blocks
   end
 
   def publish_changes_online
@@ -46,7 +48,8 @@ class RunsController < ApplicationController
     end
 
     @run.generate_blocks
-    redirect_to runs_edit_descriptions_path
+
+    redirect_to runs_edit_descriptions_path(@run)
   end
 
   def update
@@ -58,7 +61,7 @@ class RunsController < ApplicationController
       block.update(edited_content: block_update[1][0])
     end
 
-    redirect_to runs_publish_changes_path
+    redirect_to runs_publish_changes_path(@run)
   end
 
   private
