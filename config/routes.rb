@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'runs/edit_descriptions'
   get 'runs/publish_changes'
   get 'runs/reload_videos'
-  get 'runs/:id/done', to: 'runs#done'
+  get 'runs/:id/done', to: 'runs#done', as: "runs_done"
+  get 'runs/:id/publish_changes_online', to: 'runs#publish_changes_online', as: "runs_publish_changes_online"
 
   resources :runs, except: [:show]
 

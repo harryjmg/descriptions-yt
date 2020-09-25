@@ -25,6 +25,6 @@
       .buttons
         = link_to "Back", runs_edit_descriptions_path, class: "btn"
         - if @run.cost <= current_user.credit
-          = link_to "Publish", runs_publish_changes_path, class: "btn btn-primary"
+          = link_to "Publish", runs_publish_changes_online_path(@run), class: "btn btn-primary"
         - else
-          = link_to "Add credit and publish", runs_publish_changes_path, class: "btn btn-primary"
+          = link_to "Add credit and publish", runs_publish_changes_online_path(@run), class: "btn btn-primary"

@@ -9,7 +9,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         li.nav-item
           = link_to "Channel name", runs_select_videos_path, class: "nav-link"
         li.nav-item
-          = link_to "Credits : 0", root_path, class: "nav-link disabled"
+          = link_to "Credits : #{current_user.credit}", root_path, class: "nav-link disabled"
         li.nav-item
           = link_to "Add credits", credit_index_path, class: "nav-link"
         li.nav-item

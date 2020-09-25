@@ -42,4 +42,14 @@ class User < ApplicationRecord
     update(credit: 0)
   end
 
+  def credit_rm(amount)
+    last = credit
+    update(credit: last - amount)
+  end
+
+  def credit_add(amount)
+    last = credit
+    update(credit: last + amount)
+  end
+
 end

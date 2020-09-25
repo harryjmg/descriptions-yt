@@ -43,7 +43,16 @@ class Run < ApplicationRecord
   end
 
   def push_youtube
-    puts "Bang"
+    blocks.each do |block|
+      if block.edited_content.present?
+        block.videos.each do |video|
+          video.update(edited_description: (video.description.gsub! block.content, block.edited_content))
+        end
+      end
+    end
+
+    update(state: "complete")
+    current_user.credit_rm(cost)
   end
 
 end

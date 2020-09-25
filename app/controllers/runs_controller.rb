@@ -18,10 +18,13 @@ class RunsController < ApplicationController
   end
 
   def publish_changes_online
-    @run = Run.where(state: "editing").where(user: current_user).last
+    @run = current_user.runs.find(params[:id])
+
     if @run.cost <= current_user.credit
       @run.push_youtube
       redirect_to runs_done_path
+    else
+      redirect_to credit_index_path
     end
   end
 
