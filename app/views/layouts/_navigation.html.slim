@@ -5,7 +5,7 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light
       li.nav-item
         = link_to current_user.channel.name, runs_select_videos_path, class: "nav-link"
       li.nav-item
-        = link_to "Credits : #{current_user.credit}", credit_index_path, class: "nav-link"
+        .nav-link Credits : #{current_user.credit}
       li.nav-item
         = link_to "Add credits", credit_index_path, class: "nav-link"
       li.nav-item
