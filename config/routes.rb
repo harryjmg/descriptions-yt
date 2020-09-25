@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'runs/select_videos'
   get 'runs/edit_descriptions'
   get 'runs/publish_changes'
+  get 'runs/reload_videos'
+  get 'runs/:id/done', to: 'runs#done'
 
   resources :runs, except: [:show]
 

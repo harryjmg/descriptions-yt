@@ -42,4 +42,8 @@ class Run < ApplicationRecord
     update(cost: total)
   end
 
+  def push_youtube
+    puts "Bang"
+  end
+
 end

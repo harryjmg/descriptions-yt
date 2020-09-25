@@ -9,12 +9,30 @@ class RunsController < ApplicationController
   end
 
   def edit_descriptions
-    @run = Run.where(state: "editing").last
+    @run = Run.where(state: "editing").where(user: current_user).last
   end
 
   def publish_changes
-    @run = Run.where(state: "editing").last
+    @run = Run.where(state: "editing").where(user: current_user).last
     @run.calculate_cost
+  end
+
+  def publish_changes_online
+    @run = Run.where(state: "editing").where(user: current_user).last
+    if @run.cost <= current_user.credit
+      @run.push_youtube
+      redirect_to runs_done_path
+    end
+  end
+
+  def done
+    @run = current_user.runs.find(params[:id])
+  end
+
+  def reload_videos
+    current_user.channel.videos.destroy_all
+    current_user.channel.load_videos
+    redirect_to runs_select_videos_path
   end
 
   def create

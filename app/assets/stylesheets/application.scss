@@ -141,6 +141,13 @@ $theme-colors: (
   color: #505050;
 }
 
+.right_links {
+  float: right;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
 .diff{overflow:auto;}
 .diff ul{overflow:auto;list-style:none;margin:0;padding:0;display:table;width:100%;}
 .diff del, .diff ins{display:block;text-decoration:none;}

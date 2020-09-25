@@ -4,6 +4,8 @@
     .line
   div
     .title Select videos
+    .right_links
+      = link_to "Reload videos from YouTube", runs_reload_videos_path, class: "btn btn-secondary"
     - if active
       = form_for @run, url: {action: "create"} do |f|
         .body
