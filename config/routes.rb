@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   get 'credit/index'
-  get 'run/select_videos'
-  get 'run/edit_descriptions'
-  get 'run/publish_changes'
+  get 'runs/select_videos'
+  get 'runs/edit_descriptions'
+  get 'runs/publish_changes'
+
+  resources :runs, except: [:show]
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 

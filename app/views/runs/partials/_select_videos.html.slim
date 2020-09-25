@@ -1,0 +1,54 @@
+.step
+  div
+    .circle 1
+    .line
+  div
+    .title Select videos
+    - if active
+      = form_for @run, url: {action: "create"} do |f|
+        .body
+          table.table.table-hover
+            thead
+              tr.d-flex
+                th.col-1 style="text-align: center;"
+                  input type="checkbox" style="transform:scale(1.8)" id="selectAllVideos"
+                th.col-11 Video details
+            tbody
+              - @videos.each do |v|
+                tr.d-flex
+                  th.col-sm-1 style="text-align: center;"
+                    = check_box_tag "videos_id[]", v.id, false, class: "run_videos", style: "transform:scale(1.8)"
+
+                  td.col-11 style="padding-left:0; display: flex"
+                    .youtube_thumb
+                      = image_tag v[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
+                    .yt_title_and_desc
+                      .yt_title = v[:title]
+                      .yt_description = v[:description]
+
+        .buttons
+          = link_to "Back", root_path, class: "btn disabled"
+          = f.submit "Next", class: "btn btn-primary"
+
+      javascript:
+        $("#selectAllVideos").click( function() {
+          if ($("#selectAllVideos").prop('checked') == false) {
+            $(".run_videos").prop('checked', false);
+          } else {
+            $(".run_videos").prop('checked', true);
+          }
+        });
+
+/ = form_with url: office_update_blocks_path, html: {class: "ui form"} do |f|
+/   - @user.block_occurences.each_with_index do |block_occurence, i|
+/     .field
+/       label
+/
+/         .ui.circular.red.label
+/           <i class="youtube icon"></i>
+/           = "Appears in #{block_occurence[:occurences][:nb]} videos"
+/         .ui.circular.label
+/           = block_occurence[:block].truncate(45, omission: '', separator: "\n")
+/       = text_area_tag("devise_user[block_occurences][]", block_occurence[:block], rows: 3)
+/
+/   = submit_tag "Modifier", class: "ui button red"

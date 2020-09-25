@@ -1,10 +1,11 @@
-class RunController < ApplicationController
+class RunsController < ApplicationController
   before_action :authenticate_user!
 
   def select_videos
     current_user.load_videos if current_user.channel.videos.empty?
 
     set_videos
+    set_run
   end
 
   def edit_descriptions
@@ -16,7 +17,17 @@ class RunController < ApplicationController
     set_blocks
   end
 
+  def create
+  end
+
+  def update
+  end
+
   private
+
+  def set_run
+    @run = Run.new
+  end
 
   def set_videos
     @videos = current_user.channel.videos

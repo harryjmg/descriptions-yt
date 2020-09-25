@@ -9,6 +9,7 @@ class User < ApplicationRecord
   serialize :name
 
   has_one :channel
+  has_many :runs
 
   def self.from_omniauth(access_token)
     data = access_token.info
