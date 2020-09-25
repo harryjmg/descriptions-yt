@@ -8,19 +8,19 @@
       .body
         table.table
           tbody
-            - @blocks.each do |c|
+            - @run.blocks.each do |block|
               tr
                 th
                   .youtube_thumb_stack
-                    = image_tag("test-thumbnail.png", size: "123x68", alt: "Edit Entry")
+                    = image_tag block.videos.first[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
                   .youtube_videos_count
-                    | 10 videos
+                    = "#{block.videos.count} videos"
 
                 td.col-11
                   .yt_description_review
-                    = Diffy::Diff.new(c[:content], c[:edited_content]).to_s(:html_simple).html_safe
+                    = Diffy::Diff.new(block[:content], block[:edited_content]).to_s(:html_simple).html_safe
       .credit_needed
-        | Credit needed : 30
+        | Credit needed : #{@run.cost}
       .buttons
         = link_to "Back", runs_edit_descriptions_path, class: "btn"
         = link_to "Publish", root_path, class: "btn btn-primary"

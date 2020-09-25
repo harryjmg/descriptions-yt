@@ -14,7 +14,7 @@
                 tr
                   th
                     .youtube_thumb_stack
-                      = image_tag block.videos.sample[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
+                      = image_tag block.videos.first[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
                     .youtube_videos_count
                       = "#{block.videos.count} videos"
 

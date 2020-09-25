@@ -26,4 +26,20 @@ class Run < ApplicationRecord
     blocks
   end
 
+  def calculate_cost
+    total = 0
+    videos_id = []
+    blocks.each do |block|
+      if block.edited_content.present?
+        block.videos.each do |video|
+          if videos_id.include?(video.id) == false
+            videos_id << video.id
+            total += 1
+          end
+        end
+      end
+    end
+    update(cost: total)
+  end
+
 end
