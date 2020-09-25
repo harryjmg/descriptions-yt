@@ -5,25 +5,25 @@
   div
     .title Edit recurring descriptions parts
     - if active
-      .body
-        table.table
-          tbody
-            / @TODO it should be blocks
-            - @run.blocks.each do |block|
-              tr
-                th
-                  .youtube_thumb_stack
-                    = image_tag block.videos.sample[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
-                  .youtube_videos_count
-                    = "#{block.videos.count} videos"
+      = form_for @run do |f|
+        .body
+          table.table
+            tbody
+              / @TODO it should be blocks
+              - @run.blocks.each do |block|
+                tr
+                  th
+                    .youtube_thumb_stack
+                      = image_tag block.videos.sample[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
+                    .youtube_videos_count
+                      = "#{block.videos.count} videos"
 
-                td.col-11
-                  .form-group style="width: 30em; margin-left: 4em;"
-                    textarea.form-control rows="5"
-                      = block[:content]
+                  td.col-11
+                    .form-group style="width: 30em; margin-left: 4em;"
+                      = text_area_tag("run[#{block.id}][]", block[:content], rows: 5, class: "form-control")
 
-        p.ml-4 Notice : Only description parts that appears more than 1 time.
+        p.ml-2 style="color: #505050;" Notice : Only description parts that appears more than 1 time.
 
-      .buttons
-        = link_to "Back", runs_select_videos_path, class: "btn"
-        = link_to "Next", runs_publish_changes_path, class: "btn btn-primary"
+        .buttons
+          = link_to "Back", runs_select_videos_path, class: "btn"
+          = f.submit "Next", class: "btn btn-primary"

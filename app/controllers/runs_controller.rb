@@ -31,6 +31,15 @@ class RunsController < ApplicationController
   end
 
   def update
+    params.require(:run)
+    @run = Run.find(params[:id])
+
+    params[:run].each do |block_update|
+      block = Block.find(block_update[0])
+      block.update(edited_content: block_update[1])
+    end
+
+    redirect_to runs_publish_changes_path
   end
 
   private
