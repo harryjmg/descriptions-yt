@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_024224) do
+ActiveRecord::Schema.define(version: 2020_09_25_035051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 2020_09_25_024224) do
     t.index ["video_id"], name: "index_video_blocks_on_video_id"
   end
 
+  create_table "video_runs", force: :cascade do |t|
+    t.bigint "video_id", null: false
+    t.bigint "run_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["run_id"], name: "index_video_runs_on_run_id"
+    t.index ["video_id"], name: "index_video_runs_on_video_id"
+  end
+
   create_table "videos", force: :cascade do |t|
     t.text "youtube_id"
     t.string "title"
@@ -88,5 +97,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_024224) do
   add_foreign_key "runs", "users"
   add_foreign_key "video_blocks", "blocks"
   add_foreign_key "video_blocks", "videos"
+  add_foreign_key "video_runs", "runs"
+  add_foreign_key "video_runs", "videos"
   add_foreign_key "videos", "channels"
 end

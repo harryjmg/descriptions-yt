@@ -18,6 +18,13 @@ class RunsController < ApplicationController
   end
 
   def create
+    @run = Run.create(user: current_user)
+
+    run_params[:videos_id].each do |vid_id|
+      @run.videos << Video.find(vid_id)
+    end
+
+    redirect_to run_edit_descriptions_path
   end
 
   def update
@@ -26,7 +33,11 @@ class RunsController < ApplicationController
   private
 
   def set_run
-    @run = Run.new
+    @run = Run.find_by(state: "editing") || Run.new
+  end
+
+  def run_params
+    params.require(:run).permit(:videos_id => [])
   end
 
   def set_videos
