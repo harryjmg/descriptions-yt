@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   serialize :name
 
-  has_one :channel
-  has_many :runs
+  has_one :channel, :dependent => :destroy
+  has_many :runs, :dependent => :destroy
 
   def self.from_omniauth(access_token)
     data = access_token.info
@@ -34,18 +34,6 @@ class User < ApplicationRecord
     end
 
     user
-  end
-
-  def load_videos
-    account = Yt::Account.new refresh_token: channel.refresh_token
-    account.videos.each do |v|
-      channel.videos.create(
-        youtube_id: v.id,
-        title: v.title,
-        description: v.description,
-        miniature: v.thumbnail_url
-      )
-    end
   end
 
 end

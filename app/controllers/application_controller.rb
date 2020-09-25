@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(*)
-    run_select_videos_path
+    runs_select_videos_path
   end
 
 end

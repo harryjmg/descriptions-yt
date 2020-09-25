@@ -9,7 +9,9 @@ class RunsController < ApplicationController
   end
 
   def edit_descriptions
-    set_videos
+    set_videos # Will be removed
+    set_run
+
   end
 
   def publish_changes
@@ -18,13 +20,15 @@ class RunsController < ApplicationController
   end
 
   def create
-    @run = Run.create(user: current_user)
+    @run = Run.create(user: current_user, state: "editing")
 
     run_params[:videos_id].each do |vid_id|
       @run.videos << Video.find(vid_id)
     end
 
-    redirect_to run_edit_descriptions_path
+    @run.generate_blocks
+
+    redirect_to runs_edit_descriptions_path
   end
 
   def update
@@ -33,7 +37,7 @@ class RunsController < ApplicationController
   private
 
   def set_run
-    @run = Run.find_by(state: "editing") || Run.new
+    @run = Run.where(state: "editing").last || Run.new
   end
 
   def run_params
