@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
     channel = Channel.where(name: data["name"]).first
 
-    unless channel
+    if channel.nil?
       Channel.create(name: data["name"],
         access_token: access_token.credentials.token,
         refresh_token: access_token.credentials.refresh_token,

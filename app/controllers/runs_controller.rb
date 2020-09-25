@@ -2,7 +2,7 @@ class RunsController < ApplicationController
   before_action :authenticate_user!
 
   def select_videos
-    current_user.load_videos if current_user.channel.videos.empty?
+    current_user.channel.load_videos if current_user.channel.videos.empty?
 
     @videos = current_user.channel.videos
     @run = Run.new
