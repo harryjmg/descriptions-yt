@@ -7,6 +7,8 @@ class Video < ApplicationRecord
   has_many    :video_runs, dependent: :destroy
   has_many    :runs, through: :video_runs
 
+  default_scope { order(published_at: :desc) }
+
   def self.edited
     select {|v| v.edited_description.present? && v.description != v.edited_description }
   end

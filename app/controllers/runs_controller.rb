@@ -35,7 +35,6 @@ class RunsController < ApplicationController
   end
 
   def reload_videos
-    current_user.channel.videos.destroy_all
     current_user.channel.load_videos
     redirect_to runs_select_videos_path
   end
