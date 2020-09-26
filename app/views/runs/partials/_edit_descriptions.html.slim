@@ -26,4 +26,4 @@
 
         .buttons
           = link_to "Back", runs_select_videos_path, class: "btn"
-          = f.submit "Next", class: "btn btn-primary"
+          = f.button "Next", class: "btn btn-primary", data: {disable_with: "<i class='fas fa-spin fa-spinner'></i> Loading...".html_safe}

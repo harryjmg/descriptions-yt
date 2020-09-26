@@ -35,6 +35,7 @@ gem 'active_link_to'
 gem 'yt', '~> 0.32.0'
 gem 'diffy'
 gem 'stripe'
+gem 'font-awesome-sass', '~> 5.13'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
