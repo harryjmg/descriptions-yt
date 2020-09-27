@@ -6,7 +6,7 @@
     .title Select videos
     - if state == "present"
       .right_links
-        = link_to "Reload videos from YouTube", runs_reload_videos_path, class: "btn btn-secondary"
+        = link_to "Reload videos from YouTube", runs_reload_videos_path, class: "btn btn-light"
       = form_for @run, url: {action: "create"} do |f|
         .body
           table.table.table-hover
@@ -14,19 +14,22 @@
               tr.d-flex
                 th.col-1 style="text-align: center;"
                   input type="checkbox" style="transform:scale(1.8)" id="selectAllVideos"
-                th.col-11 Video details
+                th.header_font.col-7 Video
+                th.header_font.col-4 Date
             tbody
               - @videos.each do |v|
                 tr.d-flex
                   th.col-sm-1 style="text-align: center;"
                     = check_box_tag "run[videos_id][]", v.id, false, class: "run_videos", style: "transform:scale(1.8)"
 
-                  td.col-11 style="padding-left:0; display: flex"
+                  td.col-7 style="padding-left:0; display: flex"
                     .youtube_thumb
                       = image_tag v[:miniature].gsub("default", "hqdefault"), size: "123x68", style: "object-fit: cover;"
                     .yt_title_and_desc
                       .yt_title = v[:title]
                       .yt_description = v[:description]
+                  td.col-4 style="display: flex"
+                    .yt_date = v[:published_at].to_date.to_s(:rfc822)
 
         .buttons
           = link_to "Back", root_path, class: "btn disabled"

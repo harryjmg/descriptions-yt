@@ -90,7 +90,7 @@ $theme-colors: (
 }
 
 .yt_title_and_desc {
-  width: 40em;
+  width: 25em;
   margin-left: 1em;
   margin-top: auto;
   margin-bottom: auto;
@@ -160,6 +160,24 @@ $theme-colors: (
   border: 1px solid #ececec;
   border-radius: 5px;
   box-shadow: 2px 2px 5px #cecece;
+}
+
+.avatar_image {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border-radius: 500rem;
+  vertical-align: text-top;
+}
+
+.header_font {
+  font-weight: normal;
+}
+
+.yt_date {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 0.9em;
 }
 
 .diff{overflow:auto;}
