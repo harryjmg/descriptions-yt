@@ -19,11 +19,7 @@
 
                   td.col-11
                     .form-group style="width: 30em; margin-left: 4em;"
-                      / = f.text_area(:blocks), rows: 5, class: "form-control")
-                      / = text_area_tag("run[#{block.id}][]", block[:content], rows: 5, class: "form-control")
                       = block_form.text_area :edited_content, rows: 5, class: "form-control"
-
-        p.ml-2 style="color: #505050;" Notice : Only description parts that appears more than 1 time.
 
         .buttons
           = link_to "Back", runs_select_videos_path, class: "btn"

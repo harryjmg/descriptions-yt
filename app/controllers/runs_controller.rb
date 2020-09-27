@@ -52,18 +52,17 @@ class RunsController < ApplicationController
   end
 
   def update
-    params.require(:run)
     @run = Run.find(params[:id])
-
-    params[:run].each do |block_update|
-      block = Block.find(block_update[0])
-      block.update(edited_content: block_update[1][0])
-    end
-
+    @run.update(edit_descriptions_params)
+    
     redirect_to runs_publish_changes_path(@run)
   end
 
   private
+
+  def edit_descriptions_params
+    params.require(:run).permit(blocks_attributes: [:id, :edited_content])
+  end
 
   def run_params
     params.require(:run).permit(:videos_id => [])
