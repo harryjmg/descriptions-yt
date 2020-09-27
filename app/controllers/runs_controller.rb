@@ -10,7 +10,7 @@ class RunsController < ApplicationController
 
   def edit_descriptions
     @run = current_user.runs.find(params[:id])
-    @blocks = @run.select_recurrent_blocks
+    @blocks = @run.blocks
   end
 
   def publish_changes

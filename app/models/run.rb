@@ -6,29 +6,27 @@ class Run < ApplicationRecord
   has_many :video_runs
   has_many :videos, through: :video_runs
 
+  accepts_nested_attributes_for :blocks
+
   def generate_blocks
     videos.each do |v|
       parts = v.description.split("\n\n")
       parts.each do |p|
         new_block = blocks.where(content: p).first
         if new_block.nil?
-          new_block = blocks.create(content: p)
+          new_block = blocks.create(content: p, edited_content: p)
         end
         new_block.videos << v
       end
     end
 
+    blocks.where(video_blocks_count: 1).destroy_all
+
     blocks
   end
 
-  def select_recurrent_blocks
-    blocks.select { |block| block.videos.count != 1 }
-    # blocks.select { &:videos.count != 1 }
-  end
-
   def select_modified_blocks
-    filter_1 = select_recurrent_blocks
-    filter_1.select { |block| block.content != block.edited_content }
+    blocks.select { |block| block.content != block.edited_content }
   end
 
   def calculate_cost

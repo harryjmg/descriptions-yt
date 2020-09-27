@@ -103,21 +103,15 @@ $theme-colors: (
 
 .youtube_thumb_stack {
   margin-left: 1em;
-  box-shadow: 1px 1px 1px black,
-    2px 2px 1px black,
-    3px 3px 1px #a9a9a9,
-    4px 4px 1px black,
-    5px 5px 1px black,
-    6px 6px 1px #a9a9a9,
-    7px 7px 1px black,
-    8px 8px 1px black,
-    9px 9px 1px #a9a9a9,
-    10px 10px 1px black,
-    11px 11px 1px black,
-    12px 12px 1px #a9a9a9,
-    13px 13px 1px black,
-    14px 14px 1px black,
-    15px 15px 1px #a9a9a9;
+  box-shadow: 1px 1px 1px #353535,
+    2px 2px 1px #3c3c3c,
+    3px 3px 1px #ffffff,
+    4px 4px 1px #868686,
+    5px 5px 1px #868686,
+    6px 6px 1px #ffffff,
+    7px 7px 1px #bfbfbf,
+    8px 8px 1px #bfbfbf,
+    9px 9px 1px #ffffff;
 }
 
 .youtube_videos_count {
