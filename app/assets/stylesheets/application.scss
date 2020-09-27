@@ -170,6 +170,14 @@ $theme-colors: (
   vertical-align: text-top;
 }
 
+.youtube_image {
+  display: inline-block;
+  width: 1.5em;
+  vertical-align: baseline;
+  position: relative;
+  top: 3px;
+}
+
 .header_font {
   font-weight: normal;
 }
