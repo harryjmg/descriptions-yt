@@ -23,7 +23,7 @@ class ChargesController < ApplicationController
     })
 
     if charge["paid"]
-      current_user.credit_add(300)
+      current_user.credit_add(200)
     end
 
   rescue Stripe::CardError => e
