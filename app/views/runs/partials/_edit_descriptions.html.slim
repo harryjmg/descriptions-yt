@@ -1,10 +1,10 @@
-.step
+.step class=state
   div
     .circle 2
     .line
   div
-    .title Edit recurring descriptions parts
-    - if active
+    .title Edit description blocks
+    - if state == "present"
       = form_for @run do |f|
         .body
           table.table

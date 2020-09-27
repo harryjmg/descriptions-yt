@@ -6,17 +6,26 @@ class RunsController < ApplicationController
 
     @videos = current_user.channel.videos
     @run = Run.new
+
+    @step = 1
+    render 'run'
   end
 
   def edit_descriptions
     @run = current_user.runs.find(params[:id])
     @blocks = @run.blocks
+
+    @step = 2
+    render 'run'
   end
 
   def publish_changes
     @run = current_user.runs.find(params[:id])
     @run.calculate_cost
     @blocks = @run.select_modified_blocks
+
+    @step = 3
+    render 'run'
   end
 
   def publish_changes_online
@@ -54,7 +63,7 @@ class RunsController < ApplicationController
   def update
     @run = Run.find(params[:id])
     @run.update(edit_descriptions_params)
-    
+
     redirect_to runs_publish_changes_path(@run)
   end
 

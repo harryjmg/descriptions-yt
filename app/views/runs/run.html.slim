@@ -1,0 +1,5 @@
+- moment = [["present", "future", "future"], ["past", "present", "future"], ["past", "past", "present"]][@step - 1]
+
+= render 'runs/partials/select_videos', state: moment[0]
+= render 'runs/partials/edit_descriptions', state: moment[1]
+= render 'runs/partials/publish_changes', state: moment[2]

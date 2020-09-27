@@ -1,10 +1,10 @@
-.step
+.step class=state
   div
     .circle 3
     .line
   div
     .title Publish changes
-    - if active
+    - if state == "present"
       .body
         - if @blocks.empty?
           .lead style="text-align: center; padding-top: 20%;" Nothing here

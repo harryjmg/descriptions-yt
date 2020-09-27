@@ -46,6 +46,10 @@ $theme-colors: (
   font-size: 1.2em;
 }
 
+.future .circle {
+  background: #c1c1c1;
+}
+
 .line {
   position: absolute;
   border-left: 1px solid gainsboro;
@@ -64,6 +68,11 @@ $theme-colors: (
   font-size: xx-large;
   color: #505050;
   padding-bottom: 1em;
+}
+
+.future .title {
+  color: #616161;
+  font-weight: lighter;
 }
 
 .body {

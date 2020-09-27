@@ -1,10 +1,10 @@
-.step
+.step class=state
   div
     .circle 1
     .line
   div
     .title Select videos
-    - if active
+    - if state == "present"
       .right_links
         = link_to "Reload videos from YouTube", runs_reload_videos_path, class: "btn btn-secondary"
       = form_for @run, url: {action: "create"} do |f|
@@ -41,17 +41,3 @@
             $(".run_videos").prop('checked', true);
           }
         });
-
-/ = form_with url: office_update_blocks_path, html: {class: "ui form"} do |f|
-/   - @user.block_occurences.each_with_index do |block_occurence, i|
-/     .field
-/       label
-/
-/         .ui.circular.red.label
-/           <i class="youtube icon"></i>
-/           = "Appears in #{block_occurence[:occurences][:nb]} videos"
-/         .ui.circular.label
-/           = block_occurence[:block].truncate(45, omission: '', separator: "\n")
-/       = text_area_tag("devise_user[block_occurences][]", block_occurence[:block], rows: 3)
-/
-/   = submit_tag "Modifier", class: "ui button red"
