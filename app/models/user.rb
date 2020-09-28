@@ -26,15 +26,17 @@ class User < ApplicationRecord
     end
 
     channel = Channel.where(name: data["name"]).first
-    channel.update(avatar_url: data["image"])
 
     if channel.nil?
       Channel.create(name: data["name"],
         access_token: access_token.credentials.token,
         refresh_token: access_token.credentials.refresh_token,
-        user: user
+        user: user,
+        avatar_url: data["image"]
       )
     end
+
+    channel.update(avatar_url: data["image"])
 
     user
   end
