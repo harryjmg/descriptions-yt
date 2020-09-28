@@ -36,7 +36,7 @@ class User < ApplicationRecord
       )
     end
 
-    channel.update(avatar_url: data["image"])
+    channel.update(avatar_url: data["image"]) unless channel.nil?
 
     user
   end
