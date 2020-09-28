@@ -15,6 +15,14 @@ a:hover {
   color: #fff;
 }
 
+footer a, a:focus {
+  color: #929292;
+}
+
+footer a:hover {
+  color: #d4d4d4;
+}
+
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
@@ -105,4 +113,17 @@ body {
  */
 .mastfoot {
   color: rgba(255, 255, 255, .5);
+}
+
+.youtube_image {
+  display: inline-block;
+  width: 1.3em;
+  vertical-align: baseline;
+  position: relative;
+  top: 3px;
+  margin-left: 3px;
+}
+
+.lead {
+  color: #b5b5b5;
 }

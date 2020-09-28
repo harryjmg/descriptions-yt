@@ -42,7 +42,7 @@ class User < ApplicationRecord
   end
 
   def initialize_credit
-    update(credit: 30)
+    update(credit: 50)
   end
 
   def credit_rm(amount)

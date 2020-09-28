@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   get 'home/index'
   get 'home/about'
-  get 'home/terms'
-  get 'home/privacy'
+  get 'terms', to: "home#terms"
+  get 'privacy', to: "home#privacy"
 
   root to: "home#index"
 end

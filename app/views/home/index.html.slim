@@ -1,21 +1,11 @@
 .cover-container.d-flex.w-100.h-100.p-3.mx-auto.flex-column
   header.masthead.mb-auto
-    .inner
-      nav.nav.nav-masthead.justify-content-center
-        a.nav-link.active href="#" Start
-        a.nav-link href="#"  Terms
-        a.nav-link href="#"  Privacy
   main.inner.cover role="main"
-    h1.cover-heading Descriptions.yt
+    h1.cover-heading
+      | DESCRIPTIONS.
+      = image_tag "yt-full-color.png", class: "youtube_image"
     p.lead YouTube Video Descriptions Manager For Creators
     p.lead
       = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "btn btn-lg btn-secondary"
 
-  main.inner.cover style="margin-top: 4em; color: #8c8c8c;"
-    p 1. Select your videos
-    p 2. Edit recurring parts in descriptions
-    p 3. Publish your changes on YouTube
-
-  footer.mastfoot.mt-auto
-    .inner
-      p Created by Harry Jmg
+  = render 'home/partials/footer'
