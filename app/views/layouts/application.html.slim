@@ -4,9 +4,9 @@ html
     title Descriptions.yt
     = csrf_meta_tags
     = csp_meta_tag
-
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = render 'application/favicon'
     script src="https://js.stripe.com/v3/"
 
     / = render 'layouts/dev_navigation' if Rails.env.development?
