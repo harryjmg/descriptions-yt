@@ -1,14 +1,7 @@
-.cover-container.d-flex.w-100.h-100.p-3.mx-auto.flex-column
-  header.masthead.mb-auto
-  main.inner.cover role="main"
-    h1.cover-heading
-      | Descriptions.
-      = image_tag "yt-full-color.png", class: "youtube_image"
-    p.lead YouTube video descriptions manager for smart creators
-    - if user_signed_in?
-      p.lead
-        = link_to "Start the magic", runs_select_videos_path, class: "btn btn-lg btn-secondary"
-    - else
-        p.lead
-        = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "btn btn-lg btn-secondary"
-  = render 'home/partials/footer'
+h1 Projects
+p A public list of my projects and their avancement
+
+.row.row-cols-1.row-cols-md-3
+  - @projects.each do |project|
+    .col.mb-4
+      = render 'home/project', project: project

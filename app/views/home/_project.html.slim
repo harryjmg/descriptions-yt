@@ -1,0 +1,10 @@
+.card
+  .card-body
+    h5.card-title = project.title
+    p.small = link_to project.project_url, project.project_url
+    .progress.mb-3
+      .progress-bar style="width:#{project.progression_percent}%" class="bg-#{project.progress_color}"
+        = project.progress_comment
+    p.card-text = project.description
+  .card-footer
+    small.text-muted Last updated #{time_ago_in_words(project.last_updated)} ago

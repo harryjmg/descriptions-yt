@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  project_url: MyString
+  last_updated: 2020-10-04 17:37:39
+  progression_percent: 
+
+two:
+  title: MyString
+  description: MyText
+  project_url: MyString
+  last_updated: 2020-10-04 17:37:39
+  progression_percent: 

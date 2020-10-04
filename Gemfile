@@ -26,15 +26,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Use devise for user authentication
-gem 'devise'
-gem 'omniauth-google-oauth2'
 gem 'slim'
 gem 'bootstrap', '~> 4.5.2'
 gem 'jquery-rails'
 gem 'active_link_to'
-gem 'yt', '~> 0.32.0'
-gem 'diffy'
-gem 'stripe'
 gem 'font-awesome-sass', '~> 5.13'
 
 # Reduces boot times through caching; required in config/boot.rb
