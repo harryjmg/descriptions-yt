@@ -1,5 +1,6 @@
 class RunsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_run, only: [:edit_descriptions, :publish_changes, :publish_changes_online, :done, :update]
 
   def select_videos
     current_user.channel.load_videos if current_user.channel.videos.empty?
@@ -12,15 +13,11 @@ class RunsController < ApplicationController
   end
 
   def edit_descriptions
-    @run = current_user.runs.find(params[:id])
-    @blocks = @run.blocks
-
     @step = 2
     render 'run'
   end
 
   def publish_changes
-    @run = current_user.runs.find(params[:id])
     @run.calculate_cost
     @blocks = @run.select_modified_blocks
 
@@ -29,8 +26,6 @@ class RunsController < ApplicationController
   end
 
   def publish_changes_online
-    @run = current_user.runs.find(params[:id])
-
     if @run.cost <= current_user.credit
       @run.push_youtube
       redirect_to runs_done_path
@@ -40,7 +35,6 @@ class RunsController < ApplicationController
   end
 
   def done
-    @run = current_user.runs.find(params[:id])
   end
 
   def reload_videos
@@ -56,12 +50,12 @@ class RunsController < ApplicationController
     end
 
     @run.generate_blocks
+    @run.delete_false_blocks
 
     redirect_to runs_edit_descriptions_path(@run)
   end
 
   def update
-    @run = Run.find(params[:id])
     @run.update(edit_descriptions_params)
 
     redirect_to runs_publish_changes_path(@run)
@@ -79,6 +73,10 @@ class RunsController < ApplicationController
 
   def set_videos
     @videos = current_user.channel.videos
+  end
+
+  def set_run
+    @run = current_user.runs.find(params[:id])
   end
 
 end
